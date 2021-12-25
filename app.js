@@ -23,9 +23,10 @@ app.set('views', 'views')
 const adminRoutes = require('./routes/admin')
 
 // middlewares
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 app.use(bodyParser.text())
-app.use(bodyParser.json())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', adminRoutes)
