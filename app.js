@@ -4,13 +4,6 @@ const path = require('path')
 // third-party-imports
 const express = require('express')
 const bodyParser = require('body-parser')
-// const mongoose = require('mongoose')
-
-// // file-imports
-// const User = require('./models/user')
-
-// // constants
-// const MONGODB_URI = "mongodb://127.0.0.1:27017/shop?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
 
 // required objects
 const app = express()
@@ -31,15 +24,5 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', adminRoutes)
 
-// const PORT = process.env.PORT || 3000
-// mongoose
-//   .connect(MONGODB_URI)
-//   .then((result) => {
-//     console.log('Connected!')
-//     app.listen(PORT)
-//   })
-//   .catch((err) => {
-//     console.log('client_not_connected', err)
-//   })
-
-app.listen(3000)
+const PORT = process.env.PORT || 3000
+app.listen(PORT)
